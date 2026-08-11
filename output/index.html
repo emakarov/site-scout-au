@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Milk Tea Location Scoring — Demo</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; }
+  body { font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+         background: #f6f4f0; color: #2b2b2b; line-height: 1.55; }
+  main { max-width: 880px; margin: 0 auto; padding: 48px 24px 64px; }
+  h1 { font-size: 1.9rem; letter-spacing: -0.02em; }
+  .sub { color: #6b6560; margin: 8px 0 32px; max-width: 60ch; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+           gap: 20px; margin-bottom: 36px; }
+  .card { background: #fff; border: 1px solid #e4dfd8; border-radius: 12px;
+          overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,.05); }
+  .card img { width: 100%; height: 210px; object-fit: cover; object-position: center;
+              display: block; border-bottom: 1px solid #e4dfd8; }
+  .card .body { padding: 16px 18px 18px; }
+  .card h2 { font-size: 1.15rem; margin-bottom: 4px; }
+  .card p { font-size: .9rem; color: #6b6560; margin-bottom: 12px; }
+  .links a { display: inline-block; margin-right: 10px; font-size: .9rem;
+             color: #8a4b2d; font-weight: 600; text-decoration: none; }
+  .links a:hover { text-decoration: underline; }
+  .how { background: #fff; border: 1px solid #e4dfd8; border-radius: 12px;
+         padding: 22px 24px; font-size: .95rem; }
+  .how h2 { font-size: 1.1rem; margin-bottom: 10px; }
+  .how ol { padding-left: 20px; }
+  .how li { margin-bottom: 6px; }
+  footer { margin-top: 28px; font-size: .85rem; color: #8a857f; }
+</style>
+</head>
+<body>
+<main>
+  <h1>🧋 Milk Tea Location Scoring Engine</h1>
+  <p class="sub">Working demo: commercial-potential scoring for milk tea store
+  expansion, built on free public data (Overture Maps), an H3 hex grid,
+  KMeans location archetypes and a RandomForest suitability model.</p>
+
+  <div class="cards">
+    <div class="card">
+      <img src="melbourne_milk_tea_map.png" alt="Melbourne map preview">
+      <div class="body">
+        <h2>Greater Melbourne</h2>
+        <p>1,512 scored cells · 208 existing stores as training labels ·
+           ROC-AUC 0.88</p>
+        <div class="links">
+          <a href="melbourne_milk_tea_map.html">Interactive map →</a>
+          <a href="melbourne_top_locations.csv">Shortlist CSV</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="sydney_milk_tea_map.png" alt="Sydney map preview">
+      <div class="body">
+        <h2>Greater Sydney</h2>
+        <p>1,318 scored cells · 288 existing stores as training labels ·
+           ROC-AUC 0.87</p>
+        <div class="links">
+          <a href="sydney_milk_tea_map.html">Interactive map →</a>
+          <a href="sydney_top_locations.csv">Shortlist CSV</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="how">
+    <h2>How it works</h2>
+    <ol>
+      <li><b>Data</b> — ~31k points of interest per city pulled from the
+        Overture Maps public S3 bucket with DuckDB (no API keys): existing
+        bubble tea stores, cafés, Asian dining, retail anchors, stations,
+        universities and more.</li>
+      <li><b>Geospatial features</b> — aggregated onto an H3 hexagonal grid
+        (~0.74 km² cells) with walkable-catchment counts and CBD distance.</li>
+      <li><b>KMeans</b> — clusters every cell into interpretable archetypes
+        (CBD core, high-street strip, neighbourhood centre…).</li>
+      <li><b>RandomForest</b> — learns what separates locations that already
+        sustain a bubble tea store from those that don't; every cell is scored
+        out-of-fold, so scores are honest.</li>
+      <li><b>Opportunity ranking</b> — suitability discounted by existing
+        nearby supply surfaces underserved whitespace (red stars on the
+        maps).</li>
+    </ol>
+  </div>
+
+  <footer>Any Australian city is a one-line bounding-box change. The
+  production roadmap adds ABS Census demographics, foot-traffic proxies,
+  rents, and an address-level scoring API.</footer>
+</main>
+</body>
+</html>
