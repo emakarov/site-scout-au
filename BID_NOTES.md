@@ -20,6 +20,6 @@
 > "viability" to revenue prediction. Any Australian city is a one-line
 > config change.
 
-**Attach:** `output/melbourne_milk_tea_map.png` and
-`output/sydney_milk_tea_map.png`; replace `<HOSTED-URL>` with the live demo
+**Attach:** `docs/melbourne_milk_tea_map.png` and
+`docs/sydney_milk_tea_map.png`; replace `<HOSTED-URL>` with the live demo
 link once published.

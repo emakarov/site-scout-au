@@ -39,15 +39,15 @@ def main() -> None:
     cols = ["suburb", "archetype", "suitability", "opportunity",
             "n_cafe", "n_asian_dining", "n_retail", "n_transit",
             "c_bubble_tea", "anchors", "lat", "lon"]
-    top[cols].to_csv(f"output/{city}_top_locations.csv", index=False)
+    top[cols].to_csv(f"docs/{city}_top_locations.csv", index=False)
 
     print("\nTop recommended sites:")
     print(top[["suburb", "archetype", "suitability", "opportunity"]]
           .to_string(index=False))
 
-    build_map(hexes, pois, top, cfg).save(f"output/{city}_milk_tea_map.html")
-    print(f"\nWrote output/{city}_milk_tea_map.html "
-          f"and output/{city}_top_locations.csv")
+    build_map(hexes, pois, top, cfg).save(f"docs/{city}_milk_tea_map.html")
+    print(f"\nWrote docs/{city}_milk_tea_map.html "
+          f"and docs/{city}_top_locations.csv")
 
 
 if __name__ == "__main__":

@@ -7,7 +7,7 @@ so it runs anywhere in Australia — or the world — with a one-line bounding-b
 change (`src/cities.py` currently defines Greater Melbourne and Greater
 Sydney).
 
-![Map](output/melbourne_milk_tea_map.png)
+![Map](docs/melbourne_milk_tea_map.png)
 
 ## What it does
 
@@ -37,10 +37,10 @@ Sydney).
 
 | File | What it is |
 |---|---|
-| `output/index.html` | Landing page linking both city demos |
-| `output/<city>_milk_tea_map.html` | Interactive map — score choropleth, archetype layer, every competitor store, top-15 recommended sites with reasons |
-| `output/<city>_top_locations.csv` | Ranked shortlist with scores, archetype, feature breakdown and named anchors (shopping centres, stations) |
-| `output/<city>_milk_tea_map.png` | Static snapshot of the map |
+| `docs/index.html` | Landing page linking both city demos |
+| `docs/<city>_milk_tea_map.html` | Interactive map — score choropleth, archetype layer, every competitor store, top-15 recommended sites with reasons |
+| `docs/<city>_top_locations.csv` | Ranked shortlist with scores, archetype, feature breakdown and named anchors (shopping centres, stations) |
+| `docs/<city>_milk_tea_map.png` | Static snapshot of the map |
 
 Top of the current shortlists — Melbourne: Thomastown, Windsor, Hawthorn
 East, Armadale, Caulfield North, Coburg, Brunswick. Sydney: Neutral Bay,
