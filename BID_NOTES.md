@@ -3,7 +3,7 @@
 > To show rather than tell, I've built a working demo for this bid: a
 > location scoring engine covering **Greater Melbourne and Greater Sydney**,
 > running on free public data (Overture Maps — no API keys or licensing
-> costs). Live demo: `<HOSTED-URL>`
+> costs). Live demo: https://emakarov.github.io/site-scout-au/
 >
 > It pulls ~31,000 POIs per city, aggregates them onto an H3 hex grid,
 > clusters every cell into location archetypes with **KMeans** (CBD core,
@@ -21,5 +21,8 @@
 > config change.
 
 **Attach:** `docs/melbourne_milk_tea_map.png` and
-`docs/sydney_milk_tea_map.png`; replace `<HOSTED-URL>` with the live demo
-link once published.
+`docs/sydney_milk_tea_map.png`.
+
+**Links:**
+- Live demo: https://emakarov.github.io/site-scout-au/
+- Repo: https://github.com/emakarov/site-scout-au
